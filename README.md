@@ -2,7 +2,7 @@
 
 # Set Up
 
-Put Class MyCart in the App's root folder of your laravel project. `App\MyCart.php`
+Put file Cart in the App's root folder of your laravel project. `App/Cart.php`
 
 #Product Structure
 
@@ -19,25 +19,36 @@ create your own product class and set fields..
 	}
     $product = new Product();
 ```
-`id` is the unique identifier of the product
+`$id` is the unique identifier of the product
+
 `$price` is the unit price of the product
+
 
 # Add a product to cart
 
 ```
-App\Cart::newInstance()->addToCart($product,$request->qty);
+App\Cart::newInstance()->addToCart($product,$qty);
 ```
+// $qty is the quantity of items to add to cart
+
 
 # Update a product's quantity in cart 
+
 ```
 App\Cart::newInstance()->updateCart($product,$qty);
 ```
+
+// $qty is the quantity of items to update the product with
+
 
 # Reduce a product's quantity in the cart
 
 ```
 App\Cart::newInstance()->reduceCart($product,$qty);
 ```
+
+// $qty is the quantity of items to reduce the product by
+
 
 # Remove a product from cart
 
